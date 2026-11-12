@@ -11,6 +11,7 @@ function tokenFor(user) { return jwt.sign({ sub: String(user.id), role: user.rol
 function initials(name) { return name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join('').toUpperCase() || '?'; }
 
 export async function register(req, res) {
+  
   const input = validate(registerSchema, req.body);
   const password = await bcrypt.hash(input.password, 12);
   try {

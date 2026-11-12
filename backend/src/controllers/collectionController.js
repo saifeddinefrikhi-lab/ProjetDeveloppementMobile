@@ -8,8 +8,6 @@ function mapRow(row) { return { id: row.id, address: row.address, latitude: row.
 function coordinates(input) { const coords = input.location?.coordinates || [input.longitude, input.latitude]; return coords?.every((value) => value !== undefined) ? [Number(coords[1]), Number(coords[0])] : [null, null]; }
 
 export async function list(req, res) {
-
-
   const { status, mine, lat, lng, distanceKm } = req.query; const where = []; const params = [];
   if (status) { where.push('c.status = ?'); params.push(status); }
   if (mine === 'true') { where.push('c.creator_id = ?'); params.push(req.user.id); }
@@ -19,7 +17,7 @@ export async function list(req, res) {
     const longitudeDelta = latitudeDelta / Math.max(Math.cos(Number(lat) * Math.PI / 180), 0.01);
     where.push('c.location_latitude BETWEEN ? AND ? AND c.location_longitude BETWEEN ? AND ?');
     params.push(Number(lat) - latitudeDelta, Number(lat) + latitudeDelta, Number(lng) - longitudeDelta, Number(lng) + longitudeDelta);
-    
+
   }
 
   const [rows] = await pool.execute(`${select} ${where.length ? `WHERE ${where.join(' AND ')}` : ''} ORDER BY c.created_at DESC`, params);
