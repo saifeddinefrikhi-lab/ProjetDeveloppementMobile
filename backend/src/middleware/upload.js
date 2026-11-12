@@ -5,7 +5,6 @@ import fs from 'node:fs';
 import { env } from '../config/env.js';
 
 const directory = path.resolve(env.uploadDir);
-
 fs.mkdirSync(directory, { recursive: true });
 const allowed = new Set(['image/jpeg', 'image/png', 'image/webp']);
 const storage = multer.diskStorage({

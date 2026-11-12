@@ -3,6 +3,7 @@ import { env } from '../config/env.js';
 import { pool } from '../config/db.js';
 
 export async function requireAuth(req, _res, next) {
+  
   const header = req.get('authorization');
   if (!header?.startsWith('Bearer ')) {
     const error = new Error('Authentication required'); error.status = 401; return next(error);

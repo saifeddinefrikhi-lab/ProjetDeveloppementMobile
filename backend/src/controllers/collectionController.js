@@ -9,6 +9,7 @@ function coordinates(input) { const coords = input.location?.coordinates || [inp
 
 export async function list(req, res) {
   
+
   const { status, mine, lat, lng, distanceKm } = req.query; const where = []; const params = [];
   if (status) { where.push('c.status = ?'); params.push(status); }
   if (mine === 'true') { where.push('c.creator_id = ?'); params.push(req.user.id); }
