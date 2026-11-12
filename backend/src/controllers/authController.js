@@ -12,6 +12,7 @@ function initials(name) { return name.split(/\s+/).filter(Boolean).slice(0, 2).m
 
 export async function register(req, res) {
   
+
   const input = validate(registerSchema, req.body);
   const password = await bcrypt.hash(input.password, 12);
   try {

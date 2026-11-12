@@ -3,6 +3,7 @@ import * as controller from '../controllers/eventController.js';
 import { requireAuth, requireRole } from '../middleware/auth.js';
 
 const router = Router();
+
 router.use(requireAuth);
 router.get('/', controller.list);
 router.post('/', controller.create);
