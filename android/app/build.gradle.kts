@@ -5,7 +5,9 @@ plugins {
 }
 
 android {
+
     namespace = "vn.voxnut.waste_classification"
+    
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
