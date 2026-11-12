@@ -1,0 +1,6 @@
+node_modules/
+.env
+uploads/
+logs/
+ml-service/.venv/
+ml-service/__pycache__/

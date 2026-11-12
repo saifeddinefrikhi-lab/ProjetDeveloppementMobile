@@ -1,0 +1,7 @@
+fastapi>=0.115,<1
+numpy>=1.26,<3
+pillow>=10,<12
+python-multipart>=0.0.20,<1
+# LiteRT provides the TensorFlow Lite interpreter without the full TensorFlow runtime.
+ai-edge-litert>=2.3,<3
+uvicorn[standard]>=0.34,<1
