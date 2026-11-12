@@ -37,6 +37,7 @@ function mapRow(row) {
 
 async function findEvent(id, userId) {
   
+
   const [rows] = await pool.execute(
     `${select} WHERE e.id = ? AND e.latitude IS NOT NULL AND e.longitude IS NOT NULL GROUP BY e.id`,
     [userId, id],
