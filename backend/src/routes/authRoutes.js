@@ -9,5 +9,4 @@ router.post('/verify-reset-code', verifyResetCode);
 router.post('/reset-password', resetPassword);
 router.get('/me', requireAuth, me);
 router.put('/me', requireAuth, updateMe);
-
 export default router;

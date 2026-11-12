@@ -5,7 +5,6 @@ import { relayClassificationLog } from '../services/classificationLogService.js'
 
 const router = Router();
 
-
 router.use((req, res, next) => {
   const startedAt = process.hrtime.bigint();
   res.on('finish', () => {
